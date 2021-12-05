@@ -1,0 +1,42 @@
+<div class="container">
+    <div>
+        <h2>Modifier un Fichier :</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Fichier</label>
+            <input readonly type="text" [(ngModel)]="currentFichier.idFichier" name="idFichier" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Fichier</label>
+            <input type="text" [(ngModel)]="currentFichier.nomFichier" name="nomFichier" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date de Création</label>
+            <input type="date" [ngModel]="currentFichier.dateCreation
+            | date: 'yyyy-MM-dd'" (ngModelChange)=" currentFichier.dateCreation= $event" name="dateCreation"
+                        class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date modification</label>
+            <input type="date" [ngModel]="currentFichier.dateModification
+    | date: 'yyyy-MM-dd'" (ngModelChange)=" currentFichier.dateModification= $event" name="dateModification"
+                class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>taille</label>
+            <input type="text" [ngModel]="currentFichier.taille" (ngModelChange)="currentFichier.taille = $event" 
+            name="taille" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Type</label><br>
+            <select name="type" class="browser-default custom-select" [ngModel]="currentFichier.type" 
+            (ngModelChange)="currentFichier.type = $event" >
+                <option *ngFor="let type of types" [ngValue] = "type" >{{type.nomType}}</option>
+            </select>
+        </div>
+        <div class="mt-2">
+            <button type="submit" (click)="updateFichier()" class="btn btn-success">Modifer</button>
+        </div>
+    </form>
+</div>

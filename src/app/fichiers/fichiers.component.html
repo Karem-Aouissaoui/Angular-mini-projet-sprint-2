@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nom fichier</th>
+                        <th>Date de création</th>
+                        <th>Date de modification</th>
+                        <th>taille</th>
+                        <th>type</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let fichier of fichiers">
+                    <tr>
+                        <td>{{fichier.idFichier}}</td>
+                        <td>{{fichier.nomFichier}}</td>
+                        <td>{{fichier.dateCreation | date: 'dd-MM-yyyy' }}</td>
+                        <td>{{fichier.dateModification | date: 'dd-MM-yyyy' }}</td>
+                        <td>{{fichier.taille}}</td>
+                        <td>{{fichier.type.nomType }}</td>
+                        <td><a class="btn btn-danger" (click)="supprimerFichier(fichier)">Supprimer</a></td>
+                        <td><a class="btn btn-primary" [routerLink]="['/updateFichier',fichier.idFichier]">Modifier</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
