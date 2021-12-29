@@ -30,9 +30,10 @@
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>Type</label><br>
-            <select name="type" class="browser-default custom-select" [ngModel]="currentFichier.type" 
-            (ngModelChange)="currentFichier.type = $event" >
-                <option *ngFor="let type of types" [ngValue] = "type" >{{type.nomType}}</option>
+            
+            <select name="type" class="form-control form-control-lg" id="idType" name="idType" 
+            [(ngModel)] = "tmp.idType" >
+                <option *ngFor="let type of types" [value] = "type.idType" >{{type.nomType}}</option>
             </select>
         </div>
         <div class="mt-2">

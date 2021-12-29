@@ -10,6 +10,11 @@ import { UpdateFichierComponent } from './update-fichier/update-fichier.componen
 import { HttpClientModule } from '@angular/common/http';
 import { TypesComponent } from './types/types.component';
 import { AddTypeComponent } from './add-type/add-type.component';
+import { RechercheParTypeComponent } from './recherche-par-type/recherche-par-type.component';
+import { LoginComponent } from './login/login.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +24,10 @@ import { AddTypeComponent } from './add-type/add-type.component';
     UpdateFichierComponent,
     TypesComponent,
     AddTypeComponent,
+    RechercheParTypeComponent,
+    LoginComponent,
+    ForbiddenComponent,
+    RechercheParNomComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +35,10 @@ import { AddTypeComponent } from './add-type/add-type.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+        JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

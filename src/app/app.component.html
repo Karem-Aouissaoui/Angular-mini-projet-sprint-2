@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Gestion des Produits</title>
+  <title>Gestion des Fichiers</title>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
         <a class="nav-link" routerLink="/fichiers">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="add-type">Ajouter un Type</a>
+        <a *ngIf = "authService.isAdmin()" class="nav-link" routerLink="add-type">Ajouter un Type</a>
       </li>
       <!-- Dropdown -->
       <li class="nav-item dropdown">
@@ -24,19 +24,21 @@
           Fichiers
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" routerLink="add-fichier">Ajouter</a>
+          <a *ngIf = "authService.isAdmin()" class="dropdown-item" routerLink="add-fichier">Ajouter</a>
           <a class="dropdown-item" href="#">Lister</a>
+          <a class="dropdown-item" routerLink="/rechercheParType">Recherche par Type</a>
+          <a class="dropdown-item" routerLink="/rechercheParNom">Recherche par Nom</a>
         </div>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          [username]
+          {{authService.loggedUser}}
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">login</a>
-          <a class="dropdown-item" href="#">logout</a>
+          <a *ngIf="!authService.isLoggedIn" class="dropdown-item" href="#">login</a>
+          <a *ngIf="authService.isLoggedIn" class="dropdown-item" (click)="onLogout()">log out</a>
           <a class="dropdown-item" href="#">Profile</a>
         </div>
       </li>

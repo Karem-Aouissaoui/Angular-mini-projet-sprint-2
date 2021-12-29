@@ -14,7 +14,7 @@
             <input type="text" [(ngModel)] = "newFichier.nomFichier" name="nomFichier" class="form-control">
         </div>
 
-        <div class="col-sm-2 col-md-4 col-lg-4">
+        <div class="col-sm-4 col-md-4 col-lg-4">
             <label for="dateCreation">Date de création</label>
             <input type="date" [(ngModel)] = "newFichier.dateCreation " name="dateCreation" class="form-control">
         </div>
@@ -31,8 +31,9 @@
 
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>Type</label><br>
-            <select class="browser-default custom-select" [(ngModel)]="newFichier.type" [ngModelOptions]="{standalone: true}">
-                <option *ngFor="let type of types" [ngValue] = "type" >{{type.nomType}}</option>
+            <select class="browser-default custom-select" id="idType" name="idType" 
+            [(ngModel)]="newIdType">
+                <option *ngFor="let type of types" [value] = "type.idType" >{{type.nomType}}</option>
             </select>
         </div>
 

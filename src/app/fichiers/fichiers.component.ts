@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { Type } from '../model/type.model';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-fichiers',
@@ -14,9 +15,9 @@ import { Type } from '../model/type.model';
 export class FichiersComponent implements OnInit {
   fichiers : Fichier[];
   types : Type[];
-
+  isAdmin : Boolean;
   constructor(private fichierService : FichierService,
-              private router : Router) {
+              private router : Router, private authService : AuthService) {
     
    }
 
@@ -39,6 +40,8 @@ export class FichiersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isAdmin = this.authService.isAdmin();
+    console.log(this.isAdmin);
     this.fichierService.listeFichiers().subscribe(fichs =>{
       console.log(fichs);
       this.fichiers = fichs;

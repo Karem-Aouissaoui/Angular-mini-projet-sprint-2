@@ -1,3 +1,8 @@
+<div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <label>nom </label>
+    <input type="text" name="nomf" class="form-control form-control-lg" [(ngModel)]= "nomf" (change) = "onChange()" >
+</div>
+
 <div class="container">
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -12,7 +17,7 @@
                         <th>type</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let fichier of fichiers">
+                <tbody *ngFor="let fichier of fichiersRecherche">
                     <tr>
                         <td>{{fichier.idFichier}}</td>
                         <td>{{fichier.nomFichier}}</td>
