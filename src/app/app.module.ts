@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule,
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

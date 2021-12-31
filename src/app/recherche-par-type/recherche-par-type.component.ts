@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Fichier } from '../model/fichier.model';
 import { Type } from '../model/type.model';
+import { AuthService } from '../services/auth.service';
 import { FichierService } from '../services/fichier.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { FichierService } from '../services/fichier.service';
 })
 export class RechercheParTypeComponent implements OnInit {
 
-  constructor(private fichierService : FichierService) { }
+  constructor(private fichierService : FichierService, private authService : AuthService) { }
 
   types : Type[];
   fichiers : Fichier[];

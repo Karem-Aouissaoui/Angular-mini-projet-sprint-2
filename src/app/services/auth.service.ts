@@ -10,10 +10,6 @@ const httpOptions = {
   headers: new HttpHeaders( {'Content-Type': 'application/json'} )
 };
 
-providers: [
-  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-  JwtHelperService
-]
 
 @Injectable({
   providedIn: 'root'
