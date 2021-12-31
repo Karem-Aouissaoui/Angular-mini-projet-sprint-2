@@ -33,14 +33,6 @@ export class RechercheParNomComponent implements OnInit {
     this.fichiersRecherche = this.fichiers;
   }
 
-  onChange(){
-    this.fichiersRecherche = [];
-    this.fichiers.forEach((cur, index) => {
-      if(cur.nomFichier.indexOf(this.nomf) >= 0){
-        console.log("cur = "+cur);
-        this.fichiersRecherche.push(cur);
-      }
-    });
-  }
+  
 
 }
